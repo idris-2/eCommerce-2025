@@ -1,0 +1,63 @@
+//   https://dbdiagram.io/d
+
+Table products {
+  id int [pk]
+  name str
+  description str
+  category str
+  price double
+  price_old double
+  image_url str
+}
+
+Table users {
+  id int [pk]
+  username str
+  email str
+  password str
+  created_at datetime
+}
+
+Table cards {  // renamed from 'card'
+  id int [pk]
+  user_id int [ref: > users.id]
+  card_num int
+  card_name str
+  expiry_date datetime
+  cvv int
+}
+
+Table orders {
+  id int [pk]
+  user_id int [ref: > users.id]
+  total_price double
+  order_status str
+  payment_method str
+  shipping_address_id int [ref: > addresses.id]
+  created_at datetime
+}
+
+Table cart {
+  id int [pk]
+  order_id int [ref: > orders.id]
+  product_id int [ref: > products.id]
+  quantity int
+  unit_price double
+}
+
+Table addresses {
+  id int [pk]
+  user_id int [ref: > users.id]
+  address str
+  city str
+  country str
+  zip_code str
+}
+
+// Relationships (if needed to list separately)
+// Ref: products.id > cart.product_id
+// Ref: users.id > orders.user_id
+// Ref: orders.id > cart.order_id
+// Ref: users.id > cards.user_id
+// Ref: users.id > addresses.user_id
+// Ref: addresses.id > orders.shipping_address_id

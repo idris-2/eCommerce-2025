@@ -1,4 +1,81 @@
 $(document).ready(function() {
+  console.log("Hello from main index file flowers!")
+
+  var app = $.spapp({
+    defaultView  : "#homepage",
+    templateDir  : "./pages/",
+    pageNotFound : "blank"
+  });
+
+  
+  app.route({
+    view : "homepage",
+    load : "homepage.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "aboutus",
+    load : "aboutus.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "items",
+    load : "items.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "cart",
+    load : "cart.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "checkout",
+    load : "checkout.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "login",
+    load : "login.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "register",
+    load : "register.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "admin",
+    load : "admin.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.route({
+    view : "blank",
+    load : "blank.html",
+    onCreate: function() {  },
+    onReady: function() {  }
+  });
+
+  app.run();
+});
+/*
+// ORIGINAL SPAPP CODE
+$(document).ready(function() {
 
   $("main#spapp > section").height($(document).height() - 60);
 
@@ -20,3 +97,4 @@ $(document).ready(function() {
   app.run();
 
 });
+*/
