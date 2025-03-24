@@ -1,0 +1,30 @@
+.card-img-mod,
+.card-img-mod-top,
+.card-img-mod-bottom {
+  width: 100%;
+}
+
+.card-img-mod,
+.card-img-mod-top {
+  width: 100%;   /* Ensures the image takes up the full width of the card */
+  height: 275px; /* You can adjust the height as needed */
+  object-fit: cover;
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
+}
+
+.card-img-mod,
+.card-img-mod-bottom {
+  border-bottom-right-radius: var(--bs-card-inner-border-radius);
+  border-bottom-left-radius: var(--bs-card-inner-border-radius);
+}
+
+.card-link {
+    text-decoration: none;  /* Removes the underline from the link */
+    color: inherit;         /* Inherits the text color from the parent element */
+}
+
+.card-link:hover {
+    text-decoration: none;  /* Optional: Remove the underline on hover as well */
+    color: inherit;         /* Optional: Keep the text color on hover */
+}
