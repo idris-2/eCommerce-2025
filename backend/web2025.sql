@@ -14,9 +14,9 @@ CREATE TABLE products (
 );
 
 INSERT INTO products VALUES
-(1, 'Chibi Knight Keychain', 'Cute knight with sword', 'Keychain', 9.99, 12.99, 'images/knight.png'),
-(2, 'Dragon Figurine', 'Mini fantasy dragon model', 'Figurine', 14.99, 19.99, 'images/dragon.png'),
-(3, 'Space Cat Keychain', 'Astronaut cat in space', 'Keychain', 8.50, 10.00, 'images/spacecat.png');
+(1, 'Coffee Crocket Keychain', 'Cute coffee mug with eyes keychain', 'Keychain', 9.99, 12.99, 'assets/img/coffee.jpg'),
+(2, 'Robocop Crocket Figurine', 'Mini RoboCop figurine', 'Figurine', 14.99, 19.99, 'assets/img/homepage/img2.png'),
+(3, 'Berserk Armor Keychain', 'Metal berserker armor keychain', 'Keychain', 8.50, 10.00, 'assets/img/homepage/img3.png');
 
 -- Table: users
 CREATE TABLE users (
@@ -76,7 +76,7 @@ CREATE TABLE orders (
 
 INSERT INTO orders VALUES
 (1, 1, 24.98, 'completed', 'card', 1, '2025-04-01 09:00:00'),
-(2, 2, 14.99, 'pending', 'card', 2, '2025-04-04 16:45:00');
+(2, 2, 14.99, 'pending', 'paypal', 2, '2025-04-04 16:45:00');
 
 -- Table: cart (acts as order_items)
 CREATE TABLE cart (
