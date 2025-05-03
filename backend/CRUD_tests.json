@@ -67,7 +67,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"1234\"\n}"
+					"raw": "{\n  \"username\": \"Test User\",\n  \"email\": \"test@exampleLOL.com\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost/project2025/backend/users/1",
@@ -238,7 +238,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"user_id\": 1,\n  \"order_status\": \"pending\",\n  \"payment_method\": \"card\",\n  \"shipping_address_id\": \"1\"\n}"
+					"raw": "{\n  \"user_id\": 1,\n  \"total_price\": 45.99,\n  \"order_status\": \"pending\",\n  \"payment_method\": \"card\",\n  \"shipping_address_id\": \"1\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost/project2025/backend/orders",
@@ -267,10 +267,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"total_price\": 39\n}"
+					"raw": "{\n  \"order_status\": \"delivered\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost/project2025/backend/orders/5",
+					"raw": "http://localhost/project2025/backend/orders/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -279,7 +279,7 @@
 						"project2025",
 						"backend",
 						"orders",
-						"5"
+						"3"
 					]
 				}
 			},
@@ -467,7 +467,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"user_id\": 1,\n  \"address\": \"123 Main St\"\n}"
+					"raw": "{\n  \"user_id\": 1,\n  \"address\": \"SUNNYLAND\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost/project2025/backend/addresses/3",
@@ -538,7 +538,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"user_id\": 1,\n  \"card_name\": \"HELLO\",\n  \"card_num\": \"1234123412341234\",\n  \"expiry_date\": \"12/25\"\n}"
+					"raw": "{\n  \"user_id\": 2,\n  \"card_name\": \"HELLO\",\n  \"card_num\": \"1234123412341234\",\n  \"expiry_date\": \"12/25\",\n  \"cvv\": 546\n}"
 				},
 				"url": {
 					"raw": "http://localhost/project2025/backend/cards",
@@ -567,7 +567,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"cvv\": 321\n}"
+					"raw": "{\n  \"card_name\": \"LOL\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost/project2025/backend/cards/3",
