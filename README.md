@@ -63,3 +63,6 @@ The options of the route method are the foillowing:
 If `load` property is declared in the `route()` method it override the `data-load` attribute set in the `<section>` tag.
 
 If `load` property is declared when the view are built the `onCreate()` and `onReady()` functions are launched only when template are loaded.
+
+
+Test branch change

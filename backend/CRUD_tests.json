@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "b8a45433-ef83-47a0-9a1a-30401b412fba",
+		"name": "CRUD_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44603495"
+	},
+	"item": [
+		{
+			"name": "GET /users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"Test User\",\n  \"email\": \"test@exampleLOL.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test Product\",\n  \"description\": \"Test product adding!\",\n  \"category\": \"test\",\n  \"price\": 99.99,\n  \"price_old\": null,\n  \"image_url\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /products",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test Product\",\n  \"price\": 99.99,\n  \"category\": \"test\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /products",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/products/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"products",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": 1,\n  \"total_price\": 45.99,\n  \"order_status\": \"pending\",\n  \"payment_method\": \"card\",\n  \"shipping_address_id\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /orders",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order_status\": \"delivered\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/orders/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"orders",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /orders",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/orders/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order_id\": 1,\n  \"product_id\": 1,\n  \"quantity\": 2,\n  \"unit_price\": 8.53\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/cart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /cart",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order_id\": 1,\n  \"product_id\": 1,\n  \"quantity\": 2,\n  \"unit_price\": 3.99\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/cart/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cart",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/cart/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cart",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /addresses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /addresses",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"address\": \"123 Main St\",\n    \"city\": \"HELLO\",\n    \"country\": \"Fictionland\",\n    \"zip_code\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/addresses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /addresses",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": 1,\n  \"address\": \"SUNNYLAND\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/addresses/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"addresses",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /addresses",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/addresses/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"addresses",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /cards",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": 2,\n  \"card_name\": \"HELLO\",\n  \"card_num\": \"1234123412341234\",\n  \"expiry_date\": \"12/25\",\n  \"cvv\": 546\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /cards",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_name\": \"LOL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/project2025/backend/cards/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cards",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /cards",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/project2025/backend/cards/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"project2025",
+						"backend",
+						"cards",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
