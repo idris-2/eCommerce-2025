@@ -9,6 +9,8 @@ require_once __DIR__ . '/rest/services/CartService.php';
 require_once __DIR__ . '/rest/services/AddressService.php';
 require_once __DIR__ . '/rest/services/CardService.php';
 
+require_once __DIR__ . '/rest/services/AuthService.php';
+
 // REGISTER SERVICES
 // Flight::register('userService', 'UserService');
 // Flight::register('productService', 'ProductService');
@@ -24,6 +26,8 @@ Flight::set('cart_service', new CartService());
 Flight::set('order_service', new OrderService());
 Flight::set('product_service', new ProductService());
 
+Flight::register('auth_service', "AuthService");
+
 header('Content-Type: application/json');
 
 // ROUTES
@@ -33,6 +37,8 @@ require_once __DIR__ . '/rest/routes/OrderRoutes.php';
 require_once __DIR__ . '/rest/routes/CartRoutes.php';
 require_once __DIR__ . '/rest/routes/AddressRoutes.php';
 require_once __DIR__ . '/rest/routes/CardRoutes.php';
+
+require_once __DIR__ . '/rest/routes/AuthRoutes.php';
 
 Flight::route('/', function () {
     echo "Hello, FlightPHP!";
