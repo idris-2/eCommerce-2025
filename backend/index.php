@@ -39,24 +39,32 @@ Flight::register('auth_middleware', "AuthMiddleware");
 // This wildcard route intercepts all requests and applies authentication checks before proceeding.
 Flight::route('/*', function() {
     error_log("Headers: " . json_encode(getallheaders()));
-   if(
-       strpos(Flight::request()->url, '/auth/login') === 0 ||
-       strpos(Flight::request()->url, '/auth/register') === 0 ||
-       strpos(Flight::request()->url, '/docs') === 0
-   ) {
-       return TRUE;
-   } else {
-       try {
-           $token = Flight::request()->getHeader("Authentication");
-           if ($token && strpos($token, 'Bearer ') === 0) {
-               $token = substr($token, 7); // Remove "Bearer " prefix
-           }
-           if(Flight::auth_middleware()->verifyToken($token))
-               return TRUE;
-       } catch (\Exception $e) {
-           Flight::halt(401, $e->getMessage());
-       }
-   }
+    $url = Flight::request()->url;
+    $method = Flight::request()->method;
+
+    // Allow unauthenticated access to:
+    // - /auth/login
+    // - /auth/register
+    // - GET /products
+    // - GET /products/{id}
+    if (
+        strpos($url, '/auth/login') === 0 ||
+        strpos($url, '/auth/register') === 0 ||
+        ($method === 'GET' && preg_match('#^/products(/[\d]+)?$#', $url))
+    ) {
+        return TRUE;
+    } else {
+        try {
+            $token = Flight::request()->getHeader("Authentication");
+            if ($token && strpos($token, 'Bearer ') === 0) {
+                $token = substr($token, 7); // Remove "Bearer " prefix
+            }
+            if (Flight::auth_middleware()->verifyToken($token))
+                return TRUE;
+        } catch (\Exception $e) {
+            Flight::halt(401, $e->getMessage());
+        }
+    }
 });
 
 

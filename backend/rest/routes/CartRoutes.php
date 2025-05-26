@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../../data/roles.php';
 /**
  * @OA\Get(
  *     path="/cart",
@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET /cart', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('cart_service')->getAll());
 });
 
@@ -34,6 +35,7 @@ Flight::route('GET /cart', function() {
  * )
  */
 Flight::route('GET /cart/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('cart_service')->getById($id));
 });
 
@@ -62,6 +64,7 @@ Flight::route('GET /cart/@id', function($id) {
  * )
  */
 Flight::route('POST /cart', function() {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
 
     // Basic validation
@@ -114,6 +117,7 @@ Flight::route('POST /cart', function() {
  * )
  */
 Flight::route('PUT /cart/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
     echo json_encode(Flight::get('cart_service')->update($id, $data));
 });
@@ -137,5 +141,6 @@ Flight::route('PUT /cart/@id', function($id) {
  * )
  */
 Flight::route('DELETE /cart/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('cart_service')->delete($id));
 });
