@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../data/roles.php';
 /**
  * @OA\Get(
  *     path="/users",
@@ -11,6 +12,7 @@
  * )
  */
 Flight::route('GET /users', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('user_service')->getAll());
 });
 

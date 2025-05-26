@@ -28,7 +28,7 @@ class Config
        return 'localhost';
    }
    public static function JWT_SECRET() {
-       return '@=p:f;C6)ppx[E659H75MeFDbn]-c9';
+       return '63b02bb402c5e24e495d91b8838c446b2dc8838065fc43b5a0015cc9c9d3a59c';
    }
 }
 

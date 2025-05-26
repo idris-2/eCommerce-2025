@@ -17,12 +17,18 @@ Flight::group('/auth', function() {
     *         @OA\MediaType(
     *             mediaType="application/json",
     *             @OA\Schema(
-    *                 required={"password", "email"},
+    *                 required={"password", "username", "email"},
     *                 @OA\Property(
     *                     property="password",
     *                     type="string",
     *                     example="some_password",
     *                     description="User password"
+    *                 ),
+    *                 @OA\Property(
+    *                     property="username",
+    *                     type="string",
+    *                     example="demo_user",
+    *                     description="User's username"
     *                 ),
     *                 @OA\Property(
     *                     property="email",
