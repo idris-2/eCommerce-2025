@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../../data/roles.php';
 /**
  * @OA\Get(
  *     path="/addresses",
@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET /addresses', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('address_service')->getAll());
 });
 
@@ -34,6 +35,7 @@ Flight::route('GET /addresses', function() {
  * )
  */
 Flight::route('GET /addresses/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('address_service')->getById($id));
 });
 
@@ -64,6 +66,7 @@ Flight::route('GET /addresses/@id', function($id) {
  * )
  */
 Flight::route('POST /addresses', function() {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
 
     // Check for required fields (none should be null or missing)
@@ -105,6 +108,7 @@ Flight::route('POST /addresses', function() {
  * )
  */
 Flight::route('PUT /addresses/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
     echo json_encode(Flight::get('address_service')->update($id, $data));
 });
@@ -128,5 +132,6 @@ Flight::route('PUT /addresses/@id', function($id) {
  * )
  */
 Flight::route('DELETE /addresses/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('address_service')->delete($id));
 });

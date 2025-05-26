@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../data/roles.php';
 // Null check for POST (all required)
 function validate_card_required_fields($data) {
     $required_fields = ['user_id', 'card_num', 'card_name', 'expiry_date', 'cvv'];
@@ -58,6 +59,7 @@ function format_expiry_date_if_needed(&$data) {
  * )
  */
 Flight::route('GET /cards', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('card_service')->getAll());
 });
 
@@ -80,6 +82,7 @@ Flight::route('GET /cards', function() {
  * )
  */
 Flight::route('GET /cards/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('card_service')->getById($id));
 });
 
@@ -110,6 +113,7 @@ Flight::route('GET /cards/@id', function($id) {
  * )
  */
 Flight::route('POST /cards', function() {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
     validate_card_required_fields($data);
     format_expiry_date_if_needed($data);
@@ -144,6 +148,7 @@ Flight::route('POST /cards', function() {
  * )
  */
 Flight::route('PUT /cards/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     $data = Flight::request()->data->getData();
     format_expiry_date_if_needed($data);  // Only run if expiry_date is being updated
     echo json_encode(Flight::get('card_service')->update($id, $data));
@@ -168,5 +173,6 @@ Flight::route('PUT /cards/@id', function($id) {
  * )
  */
 Flight::route('DELETE /cards/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
     echo json_encode(Flight::get('card_service')->delete($id));
 });

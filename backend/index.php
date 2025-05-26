@@ -9,6 +9,15 @@ require_once __DIR__ . '/rest/services/CartService.php';
 require_once __DIR__ . '/rest/services/AddressService.php';
 require_once __DIR__ . '/rest/services/CardService.php';
 
+require_once __DIR__ . '/rest/services/AuthService.php';
+require_once __DIR__ . '/middleware/AuthMiddleware.php';
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // REGISTER SERVICES
 // Flight::register('userService', 'UserService');
 // Flight::register('productService', 'ProductService');
@@ -24,6 +33,41 @@ Flight::set('cart_service', new CartService());
 Flight::set('order_service', new OrderService());
 Flight::set('product_service', new ProductService());
 
+Flight::register('auth_service', "AuthService");
+Flight::register('auth_middleware', "AuthMiddleware");
+
+// This wildcard route intercepts all requests and applies authentication checks before proceeding.
+Flight::route('/*', function() {
+    error_log("Headers: " . json_encode(getallheaders()));
+    $url = Flight::request()->url;
+    $method = Flight::request()->method;
+
+    // Allow unauthenticated access to:
+    // - /auth/login
+    // - /auth/register
+    // - GET /products
+    // - GET /products/{id}
+    if (
+        strpos($url, '/auth/login') === 0 ||
+        strpos($url, '/auth/register') === 0 ||
+        ($method === 'GET' && preg_match('#^/products(/[\d]+)?$#', $url))
+    ) {
+        return TRUE;
+    } else {
+        try {
+            $token = Flight::request()->getHeader("Authentication");
+            if ($token && strpos($token, 'Bearer ') === 0) {
+                $token = substr($token, 7); // Remove "Bearer " prefix
+            }
+            if (Flight::auth_middleware()->verifyToken($token))
+                return TRUE;
+        } catch (\Exception $e) {
+            Flight::halt(401, $e->getMessage());
+        }
+    }
+});
+
+
 header('Content-Type: application/json');
 
 // ROUTES
@@ -33,6 +77,8 @@ require_once __DIR__ . '/rest/routes/OrderRoutes.php';
 require_once __DIR__ . '/rest/routes/CartRoutes.php';
 require_once __DIR__ . '/rest/routes/AddressRoutes.php';
 require_once __DIR__ . '/rest/routes/CardRoutes.php';
+
+require_once __DIR__ . '/rest/routes/AuthRoutes.php';
 
 Flight::route('/', function () {
     echo "Hello, FlightPHP!";

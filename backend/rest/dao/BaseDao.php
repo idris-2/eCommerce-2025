@@ -12,6 +12,17 @@ class BaseDao
         $this->connection = Database::connect();
     }
 
+    protected function query($query, $params) {
+        $statement = $this->connection->prepare($query);
+        $statement->execute($params);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function query_unique($query, $params) {
+        $results = $this->query($query, $params);
+        return reset($results);
+    }
+    
     public function getAll()
     {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->table);
