@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../data/roles.php';
 // Validate price and name not null or less than 0
 function validate_product_data($data) {
     $required_fields = ['name', 'description', 'category', 'price', 'price_old', 'image_url'];
@@ -79,6 +80,7 @@ Flight::route('GET /products/@id', function($id) {
  * )
  */
 Flight::route('POST /products', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     validate_product_data($data);
     echo json_encode(Flight::get('product_service')->createProduct($data));
@@ -111,6 +113,7 @@ Flight::route('POST /products', function() {
  * )
  */
 Flight::route('PUT /products/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     echo json_encode(Flight::get('product_service')->update($id, $data));
 });
@@ -134,5 +137,6 @@ Flight::route('PUT /products/@id', function($id) {
  * )
  */
 Flight::route('DELETE /products/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('product_service')->delete($id));
 });
