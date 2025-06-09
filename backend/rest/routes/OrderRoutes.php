@@ -155,3 +155,21 @@ Flight::route('DELETE /orders/@id', function($id) {
     Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     echo json_encode(Flight::get('order_service')->delete($id));
 });
+
+/**
+ * @OA\Post(
+ *     path="/orders/get-or-create-cart",
+ *     summary="Get or create a pending order for the current user",
+ *     tags={"orders"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Returns the user's pending order"
+ *     )
+ * )
+ */
+Flight::route('POST /orders/get-or-create-cart', function() {
+    Flight::auth_middleware()->authorizeRole([Roles::ADMIN, Roles::USER]);
+    $user = Flight::get('user');
+    $order = Flight::get('order_service')->getOrCreatePendingOrder($user->id);
+    echo json_encode($order);
+});

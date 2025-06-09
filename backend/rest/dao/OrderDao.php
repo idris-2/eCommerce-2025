@@ -19,4 +19,11 @@ class OrderDao extends BaseDao {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    public function getPendingOrderByUserId($user_id) {
+        $stmt = $this->connection->prepare("SELECT * FROM orders WHERE user_id = :user_id AND order_status = 'pending' LIMIT 1");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

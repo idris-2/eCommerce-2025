@@ -12,8 +12,12 @@ require_once __DIR__ . '/../../data/roles.php';
  * )
  */
 Flight::route('GET /cart', function() {
-    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
-    echo json_encode(Flight::get('cart_service')->getAll());
+    $user = Flight::get('user');
+    if ($user->role === Roles::ADMIN) {
+        echo json_encode(Flight::get('cart_service')->getAll());
+    } else {
+        echo json_encode(Flight::get('cart_service')->getCartByUserId($user->id));
+    }
 });
 
 /**

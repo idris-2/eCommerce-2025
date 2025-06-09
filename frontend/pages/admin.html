@@ -69,51 +69,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Coffee Cup Crochet</td>
-              <td>Coffee Keychain Crochet Pattern, Simple Beginners Mini Amigurumi Cup, Crochet Easy Kids Ornament Toy Pattern</td>
-              <td>Keychain</td>
-              <td>4.6</td>
-              <td>SET IMAGE PATH!</td>
-              <td class="text-nowrap">
-                <div class="d-flex gap-1">
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Edit</button>
-                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalFrag">Delete</button>
-                </div>
-              </td>
-            </tr>
-      
-            <tr>
-                <th scope="row">2</th>
-                <td>Berserk Armor</td>
-                <td>Berserk armor, made out of metal and very durable.</td>
-                <td>Keycahin</td>
-                <td>4.4</td>
-                <td>SET IMAGE PATH!</td>
-                <td class="text-nowrap">
-                  <div class="d-flex gap-1">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Edit</button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalFrag">Delete</button>
-                  </div>
-                </td>
-              </tr>
-            
-              <tr>
-                <th scope="row">3</th>
-                <td>Krosan</td>
-                <td>Francuski krosan, nako interesantan.</td>
-                <td>Accessorie</td>
-                <td>4.3</td>
-                <td>SET IMAGE PATH!</td>
-                <td class="text-nowrap">
-                  <div class="d-flex gap-1">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Edit</button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalFrag">Delete</button>
-                  </div>
-                </td>
-              </tr>
-      
+            <!-- Product rows will be injected here -->
           </tbody>
         </table>
     
@@ -195,27 +151,32 @@
               </div>
               <div class="modal-body">
                   <form>
-                      <div class="mb-3">
-                          <label for="productName" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="productName" required>
-                      </div>
-                      <div class="mb-3">
-                          <label for="productImage" class="form-label">Upload Image</label>
-                          <input type="file" class="form-control" id="productImage" accept="image/*">
-                      </div>
-                      <div class="mb-3">
-                          <label for="description" class="form-label">Description</label>
-                          <textarea class="form-control" id="description" rows="3"></textarea>
-                      </div>
-                      <div class="mb-3">
-                          <label for="category" class="form-label">Category</label>
-                          <select class="form-select" id="category" multiple>
-                              <option value="Keychain">Keychain</option>
-                              <option value="Accessorie">Accessorie</option>
-                              <option value="Other">Other</option>
-                          </select>
-                      </div>
-                  </form>
+  <div class="mb-3">
+    <label for="productName" class="form-label">Name</label>
+    <input type="text" class="form-control" id="productName" required>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <input type="text" class="form-control" id="category">
+  </div>
+  <div class="mb-3">
+    <label for="productPrice" class="form-label">Price</label>
+    <input type="number" class="form-control" id="productPrice" required>
+  </div>
+  <div class="mb-3">
+    <label for="productOldPrice" class="form-label">Old Price</label>
+    <input type="number" class="form-control" id="productOldPrice">
+  </div>
+  <div class="mb-3">
+    <label for="productImageUrl" class="form-label">Image URL</label>
+    <input type="text" class="form-control" id="productImageUrl">
+  </div>
+  <button type="submit" class="btn btn-success">Add Product</button>
+</form>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
