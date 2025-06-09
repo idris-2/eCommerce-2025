@@ -12,7 +12,7 @@ $(document).ready(function() {
     view : "homepage",
     load : "homepage.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { HomepageService.init(); }
   });
 
   app.route({
@@ -26,42 +26,42 @@ $(document).ready(function() {
     view : "items",
     load : "items.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { ItemService.init(); }
   });
 
   app.route({
     view : "cart",
     load : "cart.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { CartService.init(); }
   });
 
   app.route({
     view : "checkout",
     load : "checkout.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { CheckoutService.init(); }
   });
 
   app.route({
     view : "login",
     load : "login.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { LoginService.init(); }
   });
 
   app.route({
     view : "register",
     load : "register.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { RegisterService.init(); }
   });
 
   app.route({
     view : "admin",
     load : "admin.html",
     onCreate: function() {  },
-    onReady: function() {  }
+    onReady: function() { AdminService.init(); }
   });
 
   app.route({

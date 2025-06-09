@@ -13,9 +13,18 @@ class AuthMiddleware {
    }
    public function authorizeRole($requiredRole) {
        $user = Flight::get('user');
-       if ($user->role !== $requiredRole) {
-           Flight::halt(403, 'Access denied: insufficient privileges');
-       }
+    if (!$user) {
+        Flight::halt(401, 'Unauthorized: user not found in token');
+    }
+    if (is_array($requiredRole)) {
+        if (!in_array($user->role, $requiredRole)) {
+            Flight::halt(403, 'Access denied: insufficient privileges');
+        }
+    } else {
+        if ($user->role !== $requiredRole) {
+            Flight::halt(403, 'Access denied: insufficient privileges');
+        }
+    }
    }
    public function authorizeRoles($roles) {
        $user = Flight::get('user');

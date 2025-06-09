@@ -11,6 +11,10 @@ class CartService extends BaseService {
         return $this->dao->getItemsByOrderId($order_id);
     }
 
+    public function getCartByUserId($user_id) {
+        return $this->dao->getCartByUserId($user_id);
+    }
+
     public function getItem($order_id, $product_id) {
         return $this->dao->getItem($order_id, $product_id);
     }

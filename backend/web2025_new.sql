@@ -16,7 +16,7 @@ CREATE TABLE products (
 INSERT INTO products VALUES
 (1, 'Coffee Crocket Keychain', 'Cute coffee mug with eyes keychain', 'Keychain', 9.99, 12.99, 'assets/img/coffee.jpg'),
 (2, 'Robocop Crocket Figurine', 'Mini RoboCop figurine', 'Figurine', 14.99, 19.99, 'assets/img/homepage/img2.png'),
-(3, 'Berserk Armor Keychain', 'Metal berserker armor keychain', 'Keychain', 8.50, 10.00, 'assets/img/homepage/img3.png');
+(3, 'Berserk Armor Keychain', 'Metal berserker armor keychain', 'Keychain', 8.50, 10.00, 'assets/img/homepage/img3.jpg');
 
 -- Table: users (added role)
 CREATE TABLE users (
@@ -31,7 +31,7 @@ CREATE TABLE users (
 INSERT INTO users VALUES
 (1, 'alice', 'alice@example.com', '$2y$10$eImiTXuWVxfM37uY4JANjQ==', 'user', '2024-12-01 10:00:00'),
 (2, 'bob', 'bob@example.com', '$2y$10$uM61OYTHYuk2WLU7B2lfjOoIE1SzODkCw8qBP96NjXYp05qEPaAHW', 'user', '2025-01-15 14:30:00'),
-(3, 'nopen', 'nopen5446@gmail.com', '$2y$10$xp8jwnj0qp4ubGjVRnwraelQEcKmowUofc/p7a66HtqzYAxJZj.rS', 'admin', '2025-05-25 16:11:49');
+(3, 'nopen', 'nopen5446@gmail.com', '$2y$10$7LvYb69AQvWsf/aAPtFMQuCu2W1x7jMyIk1Hhx6knbu4SRokJ9WpK', 'admin', '2025-05-25 16:11:49');
 
 -- Table: cards
 CREATE TABLE cards (
