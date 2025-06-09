@@ -1,5 +1,14 @@
 const CartService = {
   init: function () {
+    const token = localStorage.getItem("user_token");
+    if (!token) {
+      if (confirm("You must be logged in to view your cart. Log in now?")) {
+        window.location.href = "#login";
+      } else {
+        window.location.href = "#homepage";
+      }
+      return;
+    }
     RestClient.get("cart", function (cartItems) {
       let $cartBody = $("#cart-body");
       $cartBody.empty();
